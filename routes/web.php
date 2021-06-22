@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Rabi
 Route::get('/', function () {
     $product1= array(
         'product_name'=> 'First Product',
@@ -34,5 +34,16 @@ Route::get('/product', function () {
     return view('product');
 });
 
+Route::get('/create_product', function(){
+    Product::create ([
+     'product_name' => 'Laptop',        
+      'Product_desc' => 'This is very nice mobile phone',
+      'price' => '100000',
+      'image' => ''
+    ]);
+});
 
-
+Route::get('/get_product', function(){
+ $products=Product::get();
+ return $products;
+}); 
