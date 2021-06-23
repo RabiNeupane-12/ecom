@@ -14,36 +14,29 @@ use App\Models\Product;
 |
 */
 Route::get('/', function () {
-    $product1= array(
-        'product_name'=> 'First Product',
-        'product_desc'=>'This is a product we want to sell.This is a very nice product.'
-    
-    );
-    $product2= array(
-            'product_name'=> 'Second Product',
-            'product_desc'=>'This is a product we want to sell.This is a very nice product.'
-    );
-    $product3= array(
-            'product_name'=> 'Third Product',
-            'product_desc'=>'This is a product we want to sell.This is a very nice product.'
-    );
-    $products_list= array($product1,$product2,$product3);
-    return view('products',['products' => $products_list] );
+    $products=Product::all();
+    return view('products', ['products' => $products] );
 });
-Route::get('/product', function () {
-    return view('product');
+Route::get('/products/{product}', function ($id) {
+    $product= Product::find($id);
+  
+    return view('product', ['product' => $product] );
 });
 
 Route::get('/create_product', function(){
     Product::create ([
-     'product_name' => 'Laptop',        
-      'Product_desc' => 'This is very nice mobile phone',
+     'product_name' => 'laptop1',        
+      'product_desc' => 'This is very nice laptop1',
       'price' => '100000',
-      'image' => ''
+      
     ]);
 });
+Route::get('/home', function(){
+    $products= Product::all();
+   return view('home', ['products' => $products] ); 
+});
 
-Route::get('/get_product', function(){
- $products=Product::get();
- return $products;
-}); 
+// Route::get('/get_product', function(){
+//  $products=Product::get();
+//  return $products;
+// }); 
