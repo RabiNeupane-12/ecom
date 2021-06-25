@@ -18,8 +18,12 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->string('product_desc');
             $table->string('image')->nullable();
+            $table->string('price');
+            $table->string('old_price')->nullable();
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });
+      
     }
 
     /**

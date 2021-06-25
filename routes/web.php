@@ -17,8 +17,8 @@ Route::get('/', function () {
     $products=Product::all();
     return view('products', ['products' => $products] );
 });
-Route::get('/products/{product}', function ($id) {
-    $product= Product::find($id);
+Route::get('/products/{product}', function (Product $product) {
+    // $product= Product::find($id);
   
     return view('product', ['product' => $product] );
 });
