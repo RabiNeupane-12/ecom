@@ -19,18 +19,14 @@ class DatabaseSeeder extends Seeder
         Category::truncate();
         Product::truncate();
 
-        //  \App\Models\User::factory(10)->create();
+         \App\Models\User::factory(10)->create();
         $category= \App\Models\Category::create([
             'category_name'=>'Mobile',
             'category_desc'=>'This category contains Mobile'
         ]);
 
-               Product::create([
-             'product_name' => 'Apple Mobile',        
-             'product_desc' => 'This is an Iphone',
-             'price' => '100000',
-             'cagetory_id'=>$category->id
+               Product::factory(5)->create();
              
-            ]);
+          
     }
 }

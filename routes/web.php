@@ -17,10 +17,10 @@ Route::get('/', function () {
     $products=Product::all();
     return view('products', ['products' => $products] );
 });
-Route::get('/products/{product}', function (Product $product) {
+Route::get('/products/{prod}', function (Product $prod) {
     // $product= Product::find($id);
   
-    return view('product', ['product' => $product] );
+    return view('product', ['product' => $prod] );
 });
 
 Route::get('/create_product', function(){
