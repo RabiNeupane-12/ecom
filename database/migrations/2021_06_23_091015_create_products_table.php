@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('image')->nullable();
             $table->string('price');
             $table->string('old_price')->nullable();
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('category_id')->constrained('categories','id');
             $table->timestamps();
         });
       

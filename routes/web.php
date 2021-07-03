@@ -32,7 +32,7 @@ Route::get('/create_product', function(){
     ]);
 });
 Route::get('/home', function(){
-    $products= Product::all();
+    $products= Product::latest('id')->get();
    return view('home', ['products' => $products] ); 
 });
 

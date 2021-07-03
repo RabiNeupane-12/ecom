@@ -126,7 +126,8 @@
                                                 <div class="product-content">
                                                     <h3><a href="product-details.html">{{ $product->product_name }}</a></h3>
                                                     <div class="product-price">
-                                                        <span>Rs. {{ $product->price }}</span>
+                                                        <span>Rs. {{ $product->price }}</span> <br>
+                                                        <span>{{ $product->category->name }}</span>
                                                     </div>
                                                 </div>
                                             </div>

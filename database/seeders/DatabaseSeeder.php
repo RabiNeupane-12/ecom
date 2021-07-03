@@ -16,16 +16,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Category::truncate();
-        Product::truncate();
+        // Category::truncate();
+        // Product::truncate();
 
          \App\Models\User::factory(10)->create();
         $category= \App\Models\Category::create([
-            'category_name'=>'Mobile',
-            'category_desc'=>'This category contains Mobile'
+            'category_name'=>'accessories',
+            'category_desc'=>'This category contains accessories'
         ]);
 
-               Product::factory(5)->create();
+               Product::factory(5)->create([
+                   'category_id' => 3
+               ]);
              
           
     }
