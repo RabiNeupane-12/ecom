@@ -17,8 +17,10 @@ class Product extends Model
     protected $attributes = [
         'image' =>' ',
     ];
+     protected $with=['category']; 
+
     public function category(){
         //hasOne, hasMany, belongsTo, belongsToMany
-       return $this->belongsTo(Category::class, 'category_id');
+       return $this->belongsTo(Category::class);
     }
 }

@@ -1,4 +1,7 @@
 @extends('product-layout')
+@section('menu')
+    @include('includes/home-menu')
+@endsection
 @section('content')
  
 <!-- Slider Area -->
@@ -124,10 +127,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">{{ $product->product_name }}</a></h3>
+                                                    <h3><a href="/products/{{ $product->id }}">{{ $product->product_name }}</a></h3>
                                                     <div class="product-price">
                                                         <span>Rs. {{ $product->price }}</span> <br>
-                                                        <span>{{ $product->category->name }}</span>
+                                                        <span><a href="/categories/{{ $product->category->id }}">{{ $product->category->category_name }}</a> </span>
                                                     </div>
                                                 </div>
                                             </div>

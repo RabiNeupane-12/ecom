@@ -1,4 +1,7 @@
 @extends('product-layout')
+@section('menu')
+@include('includes/menu')
+@endsection
 @section('content')
 <!-- Slider Area -->
 <section class="hero-slider">

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +33,15 @@ Route::get('/create_product', function(){
     ]);
 });
 Route::get('/home', function(){
-    $products= Product::latest('id')->get();
+    $products= Product::latest()->get();
    return view('home', ['products' => $products] ); 
+});
+ 
+Route::get('/categories/{category}',function(Category $category){
+//    $products= Product::whereCategoryId($category->id)->get();
+$products = $category->products;
+
+   return view('category', ['products' => $products, 'category'=> $category] ); 
 });
 
 // Route::get('/get_product', function(){
